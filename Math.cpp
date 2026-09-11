@@ -21,7 +21,13 @@
         {
             return sf::Vector2f(pos.x,pos.y);
         }
-        
-
   
+}
+
+bool Math::isOutScreen(sf::Vector2f bounds,float Height )
+{
+    if (bounds.y > Height)
+      return 1;
+      else
+      return 0;  
 }
