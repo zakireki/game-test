@@ -8,9 +8,10 @@ A simple game built with C++ and SFML, where the player controls a spaceship and
 - Ship control in four directions (WASD)
 - Continuous random asteroid spawning
 - Screen boundary detection (ship can't leave the window)
+  - Collision detection between ship and asteroids
+  - Add new ship 
 
 ## In Progress
-- Collision detection between ship and asteroids
 - Scoring system
 - Game Over screen
 
