@@ -1,3 +1,4 @@
 Assets/Ships/Texters/speedship.png filter=lfs diff=lfs merge=lfs -text
 Assets/ filter=lfs diff=lfs merge=lfs -text
 Assets/Asteroids/Texters/aster.png filter=lfs diff=lfs merge=lfs -text
+Assets/Ships/Texters/smallfreighterspr.png filter=lfs diff=lfs merge=lfs -text

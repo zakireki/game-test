@@ -13,7 +13,7 @@ int main()
     const int Width = 800;
     const int Height = 600;
     sf::RenderWindow window(sf::VideoMode(Width, Height), "game test", sf::Style::Default);
-    window.setFramerateLimit(300);
+    window.setFramerateLimit(70);
 
     Ships ship;
 

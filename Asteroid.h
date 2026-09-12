@@ -1,25 +1,24 @@
 #pragma once
-#include<SFML/Graphics.hpp>
-#include<iostream>
+#include <SFML/Graphics.hpp>
+#include <iostream>
 
 class Asteroid
 {
 private:
-    sf::Sprite asteroidSprite;
- static sf::Texture asteroidTexter;
+  sf::Sprite asteroidSprite;
+sf::RectangleShape asterBounds;
+  static sf::Texture asteroidTexter;
+  
 
-float speed=0;
-
+  float speed = 0;
 
 public:
-    Asteroid(float x,float y, float s );
-    ~Asteroid();
+  Asteroid(float x, float y, float s);
+  ~Asteroid();
 
-    
-     sf::Vector2f  GetPosition();
-      void Update(float deltaTime);
-    void Draw(sf::RenderWindow& window );
+  sf::Vector2f GetPosition();
+  sf::FloatRect GetAsteroidsGloabalBounds();
+
+  void Update(float deltaTime);
+  void Draw(sf::RenderWindow &window);
 };
-
-
-
