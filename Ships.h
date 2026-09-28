@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include<iostream>
 
 class Ships
 {
@@ -12,8 +13,9 @@ private:
   int y = 10;
 
   float speed = 80;
-
-public:
+ int hp = 100;
+  public:
+  public:
   Ships();
   ~Ships();
 
@@ -21,4 +23,10 @@ public:
   static sf::FloatRect GetShipGloabalBounds();
   void Update(float deltaTime, float Width, float Height);
   void Draw(sf::RenderWindow &window);
+void takeDamage(int HP);
+  int getHp() const;
+static int returnHp(int hp);
+
+
+
 };

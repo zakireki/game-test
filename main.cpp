@@ -35,11 +35,12 @@ int main()
             }
         }
 
+      
         deltaTime = clock.restart();
         float DT = deltaTime.asSeconds();
 
         ship.Update(DT, Width, Height);
-        asteroids.Update(DT, Width, Height);
+        asteroids.Update(DT, Width, Height,ship);
 
         window.clear(sf::Color::Black);
         ship.Draw(window);

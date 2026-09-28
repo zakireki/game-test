@@ -2,7 +2,9 @@
 #include <iostream>
 #include "Math.h"
 
+
 sf::RectangleShape Ships::shipBounds;
+
 
 Ships::Ships()
 {
@@ -57,10 +59,45 @@ void Ships::Update(float deltaTime, float Width, float Height)
 
     shipSprite.setPosition(Math::keepInBounds(shipSprite.getGlobalBounds(), shipSprite.getPosition(), Width, Height));
     shipBounds.setPosition(shipSprite.getPosition()+sf::Vector2f(15,5));
+
+
+    
 }
 
 void Ships::Draw(sf::RenderWindow &window)
 {
-    window.draw(shipSprite);
-    window.draw(shipBounds);
+
+    if (getHp() > 0)
+    {
+        /* code */
+        
+        window.draw(shipSprite);
+        window.draw(shipBounds);
+    }
+}
+
+void Ships::takeDamage(int HP)
+{
+    hp -= HP;
+    if (hp <= 0)
+    {
+        std::cout << "Game Over" << std::endl;
+        
+    }
+    else
+    {
+        std::cout << "Ship Health: " << hp << std::endl;
+       
+    }
+    
+}
+
+int Ships::getHp() const
+{
+    return hp;
+}
+
+int Ships::returnHp(int hp)
+{
+    return 1;
 }

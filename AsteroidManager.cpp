@@ -3,6 +3,7 @@
 #include "Math.h"
 #include "Ships.h"
 
+
 AsteroidManager::AsteroidManager()
 {
 
@@ -13,7 +14,7 @@ AsteroidManager::~AsteroidManager()
 {
 }
 
-void AsteroidManager::Update(float deltaTime, float Width, float Height)
+void AsteroidManager::Update(float deltaTime, float Width, float Height,Ships& ship)
 {
     if (spawnClock.getElapsedTime().asSeconds() >= spawnInterval)
     {
@@ -40,13 +41,14 @@ void AsteroidManager::Update(float deltaTime, float Width, float Height)
         }
     }
 
-    for (size_t i = 0; i < asteroids.size(); i++)
+    for (int i = static_cast<int>(asteroids.size()) - 1; i >= 0; i--)
     {
-        if (Math::checkCollision(Ships::GetShipGloabalBounds(), asteroids[i].GetAsteroidsGloabalBounds()))
+        if (ship.getHp() > 0 &&
+            Math::checkCollision(Ships::GetShipGloabalBounds(), asteroids[i].GetAsteroidsGloabalBounds()))
         {
+            ship.takeDamage(10);
             std::cout << "Collision !!!!!" << std::endl;
             asteroids.erase(asteroids.begin() + i);
-
         }
     }
 }

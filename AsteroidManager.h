@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Asteroid.h"
+#include"Ships.h"
 
 class AsteroidManager
 {
@@ -17,6 +18,6 @@ public:
     AsteroidManager(/* args */);
     ~AsteroidManager();
 
-    void Update(float deltaTime, float Width, float Height);
+    void Update(float deltaTime, float Width, float Height,Ships& ship);
     void Draw(sf::RenderWindow &window);
 };
