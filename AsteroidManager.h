@@ -5,14 +5,22 @@
 
 #include "Asteroid.h"
 #include"Ships.h"
+#include"Bullits.h"
 
 class AsteroidManager
 {
 private:
-    std::vector<Asteroid> asteroids;
+//bullits
+std::vector<Bullits> bullits;
+float spnInl;
+  sf::Clock spawnClock1;
+//asteroids
+std::vector<Asteroid> asteroids;
     sf::Clock spawnClock;
-    float spawnInterval;
+    float spawnInterval=0;
     float speed = 10;
+
+    
 
 public:
     AsteroidManager(/* args */);

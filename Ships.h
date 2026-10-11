@@ -21,6 +21,7 @@ private:
 
   // static  sf::FloatRect shipBounds;
   static sf::FloatRect GetShipGloabalBounds();
+  static sf::Vector2f GetShipPos();
   void Update(float deltaTime, float Width, float Height);
   void Draw(sf::RenderWindow &window);
 void takeDamage(int HP);

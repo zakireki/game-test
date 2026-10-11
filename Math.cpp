@@ -25,6 +25,7 @@ bool Math::isOutScreen(sf::Vector2f bounds, float Height)
 {
     if (bounds.y > Height)
         return 1;
+
     else
         return 0;
 }
@@ -39,4 +40,14 @@ bool Math::checkCollision(sf::FloatRect shipBounds, sf::FloatRect asteroids)
     {
         return false;
     }
+}
+
+bool Math::isUpScreen(sf::Vector2f bounds, float Height)
+{
+      if (bounds.y < Height-Height)
+        return 1;
+
+    else
+        return 0;
+   
 }

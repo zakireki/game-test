@@ -2,18 +2,15 @@
 #include <iostream>
 #include "Math.h"
 
-
 sf::RectangleShape Ships::shipBounds;
-
 
 Ships::Ships()
 {
     //--------------Initilaze----------------------------
-shipBounds.setSize(sf::Vector2f(34,50));
- shipBounds.setFillColor(sf::Color::Transparent);
+    shipBounds.setSize(sf::Vector2f(34, 50));
+    shipBounds.setFillColor(sf::Color::Transparent);
     shipBounds.setOutlineColor(sf::Color::Blue);
     shipBounds.setOutlineThickness(1);
-
 
     //--------------Load---------------------------------
     if (shipTexter.loadFromFile("Assets/Ships/Texters/smallfreighterspr.png"))
@@ -38,6 +35,11 @@ sf::FloatRect Ships::GetShipGloabalBounds()
     return shipBounds.getGlobalBounds();
 }
 
+sf::Vector2f Ships::GetShipPos()
+{
+    return shipBounds.getPosition() + sf::Vector2f(0, -20);
+}
+
 void Ships::Update(float deltaTime, float Width, float Height)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
@@ -58,10 +60,7 @@ void Ships::Update(float deltaTime, float Width, float Height)
     }
 
     shipSprite.setPosition(Math::keepInBounds(shipSprite.getGlobalBounds(), shipSprite.getPosition(), Width, Height));
-    shipBounds.setPosition(shipSprite.getPosition()+sf::Vector2f(15,5));
-
-
-    
+    shipBounds.setPosition(shipSprite.getPosition() + sf::Vector2f(15, 5));
 }
 
 void Ships::Draw(sf::RenderWindow &window)
@@ -70,7 +69,7 @@ void Ships::Draw(sf::RenderWindow &window)
     if (getHp() > 0)
     {
         /* code */
-        
+
         window.draw(shipSprite);
         window.draw(shipBounds);
     }
@@ -82,14 +81,11 @@ void Ships::takeDamage(int HP)
     if (hp <= 0)
     {
         std::cout << "Game Over" << std::endl;
-        
     }
     else
     {
         std::cout << "Ship Health: " << hp << std::endl;
-       
     }
-    
 }
 
 int Ships::getHp() const

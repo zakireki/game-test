@@ -8,4 +8,5 @@ public:
     static sf::Vector2f keepInBounds(sf::FloatRect bounds, sf::Vector2f pos, float Width, float Height);
     static bool isOutScreen(sf::Vector2f bounds, float Height);
     static bool checkCollision(sf::FloatRect shipBounds, sf::FloatRect asteroids);
+    static bool isUpScreen(sf::Vector2f bounds, float Height);
 };
