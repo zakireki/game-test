@@ -10,7 +10,7 @@ Ships::Ships()
     shipBounds.setSize(sf::Vector2f(34, 50));
     shipBounds.setFillColor(sf::Color::Transparent);
     shipBounds.setOutlineColor(sf::Color::Blue);
-    shipBounds.setOutlineThickness(1);
+    shipBounds.setOutlineThickness(0);
 
     //--------------Load---------------------------------
     if (shipTexter.loadFromFile("Assets/Ships/Texters/smallfreighterspr.png"))

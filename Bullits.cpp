@@ -3,8 +3,8 @@
 
 Bullits::Bullits( float s)
 {
-    bullitRect.setFillColor(sf::Color::Blue);
-    bullitRect.setSize(sf::Vector2f(30,15));
+    bullitRect.setFillColor(sf::Color::White);
+    bullitRect.setSize(sf::Vector2f(4,8));
     bullitRect.setPosition(Ships::GetShipPos());
     
 

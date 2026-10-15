@@ -18,7 +18,7 @@ float spnInl;
 std::vector<Asteroid> asteroids;
     sf::Clock spawnClock;
     float spawnInterval=0;
-    float speed = 10;
+    float speed = 25;
 
     
 

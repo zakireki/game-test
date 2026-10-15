@@ -19,6 +19,21 @@ int main()
 
     AsteroidManager asteroids;
 
+
+    
+     sf::Font font;
+    if (!font.loadFromFile("Assets/fonts/arial.ttf")) {
+        std::cout << "Error loading font!" << std::endl;
+        return -1;
+    }
+
+    sf::Text hpText;
+    hpText.setFont(font);
+    hpText.setCharacterSize(20);
+    hpText.setColor(sf::Color::Green);
+
+    
+
     sf::Clock clock;
     sf::Time deltaTime;
     while (window.isOpen())
@@ -35,6 +50,9 @@ int main()
             }
         }
 
+        std::string hp = std::to_string(ship.getHp());
+        hpText.setString("HP : " +hp);
+
         deltaTime = clock.restart();
         float DT = deltaTime.asSeconds();
 
@@ -42,7 +60,8 @@ int main()
         asteroids.Update(DT, Width, Height, ship);
 
         window.clear(sf::Color::Black);
-
+         
+        window.draw(hpText);
         ship.Draw(window);
         asteroids.Draw(window);
 

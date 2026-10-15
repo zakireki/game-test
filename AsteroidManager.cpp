@@ -7,8 +7,8 @@
 AsteroidManager::AsteroidManager()
 {
 
-    spawnInterval = 1;
-    spnInl = 0.3;
+    spawnInterval = 0.3;
+    spnInl = 0.1;
 }
 
 AsteroidManager::~AsteroidManager()
@@ -32,7 +32,7 @@ void AsteroidManager::Update(float deltaTime, float Width, float Height,Ships& s
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::J))
         {
             /* code */
-            bullits.push_back(Bullits(100));
+            bullits.push_back(Bullits(50));
             spawnClock1.restart();
         }
         

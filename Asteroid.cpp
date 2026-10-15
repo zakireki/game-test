@@ -7,7 +7,7 @@ Asteroid::Asteroid(float x, float y, float s)
     asterBounds.setSize(sf::Vector2f(54,44));
     asterBounds.setFillColor(sf::Color::Transparent);
     asterBounds.setOutlineColor(sf::Color::Red);
-    asterBounds.setOutlineThickness(1);
+    asterBounds.setOutlineThickness(0);
  
 
 
