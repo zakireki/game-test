@@ -4,19 +4,28 @@
 #include <SFML/Graphics.hpp>
 
 #include "Asteroid.h"
+#include"Ships.h"
+#include"Bullits.h"
 
 class AsteroidManager
 {
 private:
-    std::vector<Asteroid> asteroids;
+//bullits
+std::vector<Bullits> bullits;
+float spnInl;
+  sf::Clock spawnClock1;
+//asteroids
+std::vector<Asteroid> asteroids;
     sf::Clock spawnClock;
-    float spawnInterval;
-    float speed = 10;
+    float spawnInterval=0;
+    float speed = 25;
+
+    
 
 public:
     AsteroidManager(/* args */);
     ~AsteroidManager();
 
-    void Update(float deltaTime, float Width, float Height);
+    void Update(float deltaTime, float Width, float Height,Ships& ship);
     void Draw(sf::RenderWindow &window);
 };

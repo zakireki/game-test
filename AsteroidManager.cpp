@@ -3,17 +3,19 @@
 #include "Math.h"
 #include "Ships.h"
 
+
 AsteroidManager::AsteroidManager()
 {
 
-    spawnInterval = 1;
+    spawnInterval = 0.3;
+    spnInl = 0.1;
 }
 
 AsteroidManager::~AsteroidManager()
 {
 }
 
-void AsteroidManager::Update(float deltaTime, float Width, float Height)
+void AsteroidManager::Update(float deltaTime, float Width, float Height,Ships& ship)
 {
     if (spawnClock.getElapsedTime().asSeconds() >= spawnInterval)
     {
@@ -25,11 +27,28 @@ void AsteroidManager::Update(float deltaTime, float Width, float Height)
         spawnClock.restart();
     }
 
+    if (ship.getHp() > 0 &&spawnClock1.getElapsedTime().asSeconds() >= spnInl)
+    {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::J))
+        {
+            /* code */
+            bullits.push_back(Bullits(50));
+            spawnClock1.restart();
+        }
+        
+    }
+    
+
     for (size_t i = 0; i < asteroids.size(); i++)
     {
 
         asteroids[i].Update(deltaTime);
     }
+    for (size_t i = 0; i < bullits.size(); i++)
+    {
+        bullits[i].Update(deltaTime);
+    }
+    
     for (int i = asteroids.size() - 1; i >= 0; i--)
     {
 
@@ -39,16 +58,44 @@ void AsteroidManager::Update(float deltaTime, float Width, float Height)
             asteroids.erase(asteroids.begin() + i);
         }
     }
-
-    for (size_t i = 0; i < asteroids.size(); i++)
+     for (int i = 0; i< bullits.size() ; i++)
     {
-        if (Math::checkCollision(Ships::GetShipGloabalBounds(), asteroids[i].GetAsteroidsGloabalBounds()))
-        {
-            std::cout << "Collision !!!!!" << std::endl;
-            asteroids.erase(asteroids.begin() + i);
 
+        if (Math::isUpScreen(bullits[i].GetBullitsPos(), Height))
+        {
+
+            bullits.erase(bullits.begin() + i);
+            std::cout<<"bullit erase "<<std::endl;
         }
     }
+
+
+    for (int i = static_cast<int>(asteroids.size()) - 1; i >= 0; i--)
+    {
+        if (ship.getHp() > 0 &&
+            Math::checkCollision(Ships::GetShipGloabalBounds(), asteroids[i].GetAsteroidsGloabalBounds()))
+        {
+            ship.takeDamage(10);
+            std::cout << "Collision !!!!!" << std::endl;
+            asteroids.erase(asteroids.begin() + i);
+        }
+    }
+    for (size_t i = 0; i < bullits.size(); i++)
+    {
+       for (size_t j = 0; j < asteroids.size(); j++)
+       {
+        if (Math::checkCollision(bullits[i].GetBullitsBounds(),asteroids[j].GetAsteroidsGloabalBounds()))
+        {
+           asteroids.erase(asteroids.begin() + j);
+            bullits.erase(bullits.begin() + i);
+             std::cout << "Collision bullits aster §§§ ;" << std::endl;
+
+        }
+        
+       }
+       
+    }
+    
 }
 
 void AsteroidManager::Draw(sf::RenderWindow &window)
@@ -57,4 +104,10 @@ void AsteroidManager::Draw(sf::RenderWindow &window)
     {
         asteroids[i].Draw(window);
     }
+    for (int i = 0; i < bullits.size(); i++)
+    {
+        bullits[i].Draw(window);
+    }
+    
+
 }
