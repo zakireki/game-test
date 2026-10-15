@@ -9,7 +9,9 @@ A simple game built with C++ and SFML, where the player controls a spaceship and
 - Continuous random asteroid spawning
 - Screen boundary detection (ship can't leave the window)
   - Collision detection between ship and asteroids
-  - Add new ship 
+  - Add new ship
+  - HP detect
+  - shoot system && bullits
 
 ## In Progress
 - Scoring system
@@ -32,6 +34,7 @@ A simple game built with C++ and SFML, where the player controls a spaceship and
 | A | Move Left |
 | S | Move Down |
 | D | Move Right |
+| J | shoot bullits |
 
 ## Credits
 
