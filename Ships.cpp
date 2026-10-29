@@ -97,3 +97,9 @@ int Ships::returnHp(int hp)
 {
     return 1;
 }
+
+void Ships::reset()
+{
+    hp = 100;
+    shipSprite.setPosition(400,300);
+}
