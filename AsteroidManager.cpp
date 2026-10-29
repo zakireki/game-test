@@ -58,7 +58,7 @@ void AsteroidManager::Update(float deltaTime, float Width, float Height,Ships& s
             asteroids.erase(asteroids.begin() + i);
         }
     }
-     for (int i = 0; i< bullits.size() ; i++)
+     for (int i = bullits.size() -1 ;  i>= 0 ; i--)
     {
 
         if (Math::isUpScreen(bullits[i].GetBullitsPos(), Height))
@@ -110,4 +110,12 @@ void AsteroidManager::Draw(sf::RenderWindow &window)
     }
     
 
+}
+
+void AsteroidManager::reset()
+{
+    asteroids.clear();
+    bullits.clear();
+    spawnClock.restart();
+    spawnClock1.restart();
 }

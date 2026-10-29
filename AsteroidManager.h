@@ -28,4 +28,5 @@ public:
 
     void Update(float deltaTime, float Width, float Height,Ships& ship);
     void Draw(sf::RenderWindow &window);
+    void reset();
 };

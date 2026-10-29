@@ -27,6 +27,7 @@ private:
 void takeDamage(int HP);
   int getHp() const;
 static int returnHp(int hp);
+void reset();
 
 
 
