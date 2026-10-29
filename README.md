@@ -12,10 +12,10 @@ A simple game built with C++ and SFML, where the player controls a spaceship and
   - Add new ship
   - HP detect
   - shoot system && bullits
+  - state system has been aded
 
 ## In Progress
 - Scoring system
-- Game Over screen
 
 ## Requirements
 - SFML 2.x
